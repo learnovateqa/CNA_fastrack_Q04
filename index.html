@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CNA Levels 4 &amp; 5 — Week 4 Quiz</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: { colors: {
+    brand: { 50:'#fdf2f8',100:'#fce7f3',200:'#fbcfe8',300:'#f9a8d4',400:'#f472b6',500:'#ec4899',600:'#db2777',700:'#be185d' },
+    teal:  { 50:'#effbfa',100:'#ddf1f1',300:'#8ed3d2',500:'#0f7c80',700:'#0b5e61' },
+    ink:   { 900:'#0b5e61',800:'#0f7c80',700:'#334155' } },
+    fontFamily: { display: ['Lora','Georgia','serif'] } } }
+}
+</script>
+<style>
+  body { background:#fdf7fa; }
+  .font-display, h1,h2,h3 { font-family:"Lora",Georgia,serif; }
+  .fade { animation: fade .35s ease; }
+  @keyframes fade { from { opacity:0; transform: translateY(6px);} to {opacity:1; transform:none;} }
+  .pal-btn { transition: all .15s ease; }
+
+  /* screenshot instruction */
+  .shot-wrap { position: relative; }
+  .shot-frame { outline: 4px dashed #E2477E; outline-offset: 7px; border-radius: 1rem; }
+  .shot-tag { position: absolute; top: -14px; left: 14px; background: #E2477E; color: #fff;
+    font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; z-index: 5; white-space: nowrap; }
+  .mini { background: #1F2D3A; color: #fff; border-radius: 10px; padding: 12px 14px; font-size: 11px; line-height: 1.35; }
+  .mini .big { font-size: 22px; font-weight: 800; line-height: 1; }
+  .mini .pct { font-size: 15px; font-weight: 800; color: #5eead4; }
+  .mini .lbl { font-size: 8px; text-transform: uppercase; letter-spacing: .1em; color: #94a3b8; }
+  .mini .val { font-weight: 700; }
+  .mini .pill { display: inline-block; background: #14b8a6; color: #fff; font-size: 9px; font-weight: 800;
+    border-radius: 999px; padding: 3px 8px; }
+  .num { display: inline-flex; width: 18px; height: 18px; border-radius: 50%; background: #E2477E; color: #fff;
+    font-size: 10px; font-weight: 800; align-items: center; justify-content: center; margin-right: 6px; flex: none; }
+  .mini .mk { display: inline-block; outline: 2px solid #E2477E; outline-offset: 2px; border-radius: 4px; }
+  @media print {
+    .no-print { display:none !important; }
+    body { background:#fff; }
+    .print-block { break-inside: avoid; box-shadow:none !important; border:1px solid #cbd5e1 !important; }
+    .print-full { max-width:100% !important; }
+  }
+
+/* drag and drop */
+.chip { cursor: grab; user-select: none; touch-action: manipulation; }
+.chip.sel { outline: 3px solid #ec4899; outline-offset: 2px; }
+.slot.over { background: #fdf2f8 !important; border-color: #ec4899 !important; }
+</style>
+</head>
+<body class="text-slate-800">
+
+<!-- ═════════ HEADER ═════════ -->
+<header class="sticky top-0 z-40 bg-ink-900 text-white shadow-lg no-print border-b-4 border-brand-400">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+    <svg viewBox="0 0 40 40" width="44" height="44" class="shrink-0" style="width:44px;height:44px" aria-label="CNA Levels 4 and 5" role="img">
+        <g fill="#E2477E">
+          <rect x="13" y="1.5" width="14" height="37" rx="4.5"/>
+          <rect x="1.5" y="13" width="37" height="14" rx="4.5"/>
+        </g>
+        <path fill="#fff" d="M20 29.4l-1.2-1.1c-4.3-3.9-7.1-6.4-7.1-9.5 0-2.5 1.9-4.4 4.4-4.4 1.4 0 2.8.7 3.7 1.7l.2.3.2-.3c.9-1 2.3-1.7 3.7-1.7 2.5 0 4.4 1.9 4.4 4.4 0 3.1-2.8 5.6-7.1 9.5L20 29.4z"/>
+      </svg>
+    <div class="min-w-0 flex-1">
+      <h1 class="font-display font-bold text-base sm:text-lg leading-tight truncate">CNA Levels 4 &amp; 5 — Week 4 Quiz</h1>
+      <p class="text-[11px] sm:text-xs text-teal-100 truncate">Body Mechanics · Moving &amp; Transfers · Exercise &amp; Activity · Rehabilitation · Chapters 13 · 14 · 23 · 27</p>
+    </div>
+    <span class="hidden md:inline-flex items-center gap-1 text-[10px] font-bold tracking-wider uppercase bg-white/10 text-brand-200 border border-brand-300/50 rounded-full px-3 py-1">
+      <i class="fa-solid fa-shield-heart"></i> WHO standards
+    </span>
+    <div class="hidden sm:block text-right border-l border-white/15 pl-3">
+      <p class="text-xs font-semibold leading-tight">Maria Tongga, BSN, RN, RM</p>
+      <p class="text-[10px] text-brand-200">CNA Instructor</p>
+    </div>
+  </div>
+</header>
+
+<!-- ═════════ SCREEN 0 · TIME LOCK ═════════ -->
+<section id="screen-lock" class="hidden fade">
+  <div class="max-w-xl mx-auto px-4 py-16 text-center">
+    <div class="bg-ink-900 text-white rounded-2xl shadow-xl p-10">
+      <div class="w-20 h-20 rounded-full bg-brand-500/15 border border-brand-500/40 grid place-items-center mx-auto mb-6">
+        <i class="fa-solid fa-lock text-3xl text-brand-400"></i>
+      </div>
+      <h2 class="font-display text-2xl font-bold mb-2">This exam is locked</h2>
+      <p class="text-teal-100 text-sm mb-6">It opens on <span id="lock-when" class="text-brand-300 font-semibold"></span> (Doha time).</p>
+      <div class="grid grid-cols-3 gap-3 max-w-sm mx-auto">
+        <div class="bg-white/5 rounded-xl py-4"><p id="cd-h" class="text-3xl font-bold">00</p><p class="text-[10px] uppercase tracking-widest text-slate-400">Hours</p></div>
+        <div class="bg-white/5 rounded-xl py-4"><p id="cd-m" class="text-3xl font-bold">00</p><p class="text-[10px] uppercase tracking-widest text-slate-400">Minutes</p></div>
+        <div class="bg-white/5 rounded-xl py-4"><p id="cd-s" class="text-3xl font-bold">00</p><p class="text-[10px] uppercase tracking-widest text-slate-400">Seconds</p></div>
+      </div>
+      <p class="text-xs text-slate-400 mt-6">The page unlocks by itself. You do not need to reload.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ SCREEN 1 · REGISTRATION + REVIEWER ═════════ -->
+<section id="screen-home" class="hidden fade">
+  <div class="max-w-6xl mx-auto px-4 py-8 grid lg:grid-cols-3 gap-6">
+
+    <!-- registration -->
+    <aside class="lg:col-span-1 lg:sticky lg:top-24 self-start">
+      <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
+        <div class="bg-ink-900 text-white px-5 py-4">
+          <h2 class="font-display text-lg font-bold">Examinee registration</h2>
+          <p class="text-xs text-teal-100">Fill this in to start the exam.</p>
+        </div>
+        <div class="p-5 space-y-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-ink-700 mb-1">Full name</label>
+            <input id="reg-name" type="text" autocomplete="name" placeholder="e.g. Fatima Al Sayed"
+              class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-ink-700 mb-1">Email</label>
+            <input id="reg-email" type="email" autocomplete="email" placeholder="you@email.com"
+              class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-400 focus:border-brand-400 outline-none">
+            <p id="reg-msg" class="text-xs text-brand-600 mt-1 hidden"></p>
+          </div>
+          <dl class="grid grid-cols-3 gap-2 text-center pt-1">
+            <div class="bg-slate-50 rounded-lg py-2"><dt class="text-[10px] uppercase text-slate-500">Items</dt><dd class="font-bold text-ink-900">100</dd></div>
+            <div class="bg-slate-50 rounded-lg py-2"><dt class="text-[10px] uppercase text-slate-500">Minutes</dt><dd class="font-bold text-ink-900">150</dd></div>
+            <div class="bg-slate-50 rounded-lg py-2"><dt class="text-[10px] uppercase text-slate-500">To pass</dt><dd class="font-bold text-ink-900">75%</dd></div>
+          </dl>
+          <div id="warn-box" class="bg-brand-50 border-2 border-brand-500 rounded-xl p-4">
+            <p class="text-base font-bold text-brand-700 mb-2 leading-snug">
+              <span style="font-size:20px;line-height:1">⚠️</span> READ THIS BEFORE YOU PRESS START <span style="font-size:20px;line-height:1">⚠️</span></p>
+            <ul class="space-y-1.5 text-[13px] text-ink-900 leading-snug">
+              <li><b>100 items · 150 minutes · 75% to pass.</b></li>
+              <li><b>5 attempts only.</b> After the 5th the quiz locks.</li>
+              <li><b>Pressing Start uses one attempt</b> — even if you close the page.</li>
+              <li><b>The timer does not stop</b> once you start.</li>
+              <li>When you finish: <b>screenshot your score</b> and turn it in on Google Classroom, or send it to Ms. Maria.</li>
+              <li>Only press Start when you have <b>150 quiet minutes</b>.</li>
+            </ul>
+            <p id="attempts-left" class="mt-3 text-sm font-bold text-ink-900"></p>
+          </div>
+          <button id="btn-start" disabled
+            class="w-full rounded-lg bg-brand-500 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 text-sm hover:bg-brand-600 transition">
+            <i class="fa-solid fa-play mr-1"></i> Start exam
+          </button>
+          <p class="text-[11px] text-slate-500 leading-relaxed">
+            The skills evaluation is taken separately with your instructor. Both parts must be passed.
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 bg-teal-50 border border-teal-300 rounded-2xl p-4">
+        <p class="text-xs font-bold uppercase tracking-wider text-teal-700 mb-1"><i class="fa-solid fa-star mr-1"></i> The Golden Rule</p>
+        <p class="text-sm text-ink-800 font-semibold">Observe · Assist · Document · Report</p>
+        <p class="text-xs text-ink-700 mt-1">A nursing assistant reports to the supervising nurse. A CNA does not diagnose, prescribe, give medications, take doctor's orders, or change the care plan.</p>
+      </div>
+    </aside>
+
+    <!-- reviewer -->
+    <div class="lg:col-span-2">
+      <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-5 mb-4">
+        <h2 class="font-display text-xl font-bold text-ink-900">Study reviewer</h2>
+        <p class="text-sm text-slate-600">Open each module and review before you start. Everything in the exam comes from these six modules.</p>
+      </div>
+      <div id="reviewer" class="space-y-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ SCREEN 2 · EXAM ═════════ -->
+<section id="screen-exam" class="hidden fade">
+  <div class="sticky top-[60px] sm:top-[64px] z-30 bg-white border-b border-slate-200 shadow-sm no-print">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+      <div id="avatar" class="w-9 h-9 rounded-full bg-teal-500 text-white grid place-items-center text-xs font-bold shrink-0">--</div>
+      <div class="min-w-0 flex-1">
+        <p id="exam-name" class="text-xs font-bold text-ink-900 truncate">Candidate</p>
+        <div class="h-2 bg-slate-200 rounded-full mt-1 overflow-hidden">
+          <div id="bar" class="h-full bg-brand-500 rounded-full transition-all" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="text-right shrink-0">
+        <p id="clock" class="font-mono font-bold text-ink-900 text-lg leading-none">150:00</p>
+        <p id="progress-txt" class="text-[10px] text-slate-500">0 of 100 saved</p>
+      </div>
+      <button id="btn-submit" class="shrink-0 rounded-lg bg-ink-900 hover:bg-ink-800 text-white text-xs font-bold px-3 py-2.5">
+        <i class="fa-solid fa-paper-plane mr-1"></i> Submit
+      </button>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-4 py-6 grid lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2">
+      <div id="qcard" class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 min-h-[340px]"></div>
+      <div class="flex items-center justify-between mt-4">
+        <button id="btn-prev" class="rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold hover:bg-slate-50">
+          <i class="fa-solid fa-arrow-left mr-1"></i> Back
+        </button>
+        <button id="btn-next" class="rounded-lg bg-teal-500 hover:bg-teal-700 text-white px-5 py-2.5 text-sm font-bold">
+          Next <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+    </div>
+    <aside class="lg:sticky lg:top-40 self-start">
+      <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-4">
+        <p class="text-xs font-bold uppercase tracking-wider text-ink-700 mb-3">Question palette</p>
+        <div id="palette"></div>
+        <div class="mt-4 space-y-1.5 text-[11px] text-slate-600">
+          <p><span class="inline-block w-3 h-3 rounded bg-brand-500 align-middle mr-2"></span>Active</p>
+          <p><span class="inline-block w-3 h-3 rounded bg-teal-500 align-middle mr-2"></span>Saved</p>
+          <p><span class="inline-block w-3 h-3 rounded bg-slate-200 border border-slate-300 align-middle mr-2"></span>Pending</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ═════════ SCREEN 3 · SCORECARD ═════════ -->
+<section id="screen-result" class="hidden fade">
+  <div class="max-w-4xl mx-auto px-4 py-8 print-full">
+    <div class="shot-wrap mb-8">
+      <span class="shot-tag no-print"><i class="fa-solid fa-camera"></i> &nbsp;Screenshot everything inside this line</span>
+      <div id="score-card" class="bg-ink-900 text-white rounded-2xl shadow-xl p-8 print-block shot-frame"></div>
+    </div>
+    <div class="bg-brand-50 border-2 border-brand-400 rounded-2xl p-6 mb-6 print-block">
+      <h3 class="font-display text-2xl font-bold text-brand-700 mb-1">
+        <i class="fa-solid fa-camera mr-2"></i>Take a screenshot of your score NOW</h3>
+      <p class="text-base text-ink-900 font-semibold mb-1">This page does not save. If you close it without a screenshot, your score is gone.</p>
+      <p class="text-sm text-ink-800 mb-5">Capture everything inside the pink dashed line above, then <b>turn it in on Google Classroom</b> or <b>send it to Ms. Maria</b>.</p>
+
+      <div class="grid sm:grid-cols-2 gap-5 items-start">
+
+        <!-- worked sample -->
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-2">A good screenshot looks like this</p>
+          <div class="mini">
+            <div class="flex items-start gap-4">
+              <div>
+                <p class="lbl">Raw score</p>
+                <p class="big mk">82<span style="font-size:13px;color:#94a3b8">/100</span></p>
+                <p class="pct mk" style="margin-top:3px">82%</p>
+              </div>
+              <div class="flex-1">
+                <span class="pill mk">WRITTEN EXAM: PASS</span>
+                <div class="grid grid-cols-2 gap-x-3 gap-y-1 mt-2">
+                  <div><p class="lbl">Candidate</p><p class="val mk">Fatima Al Sayed</p></div>
+                  <div><p class="lbl">Email</p><p class="val">fatima@email.com</p></div>
+                  <div><p class="lbl">Time used</p><p class="val">118 min</p></div>
+                  <div><p class="lbl">Submitted</p><p class="val mk">14 Oct 2026, 19:40</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2 italic">Example only — this is not your result.</p>
+        </div>
+
+        <!-- what it must show -->
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-2">It must show all four of these</p>
+          <ul class="space-y-2 text-sm text-ink-900">
+            <li class="flex items-start"><span class="num">1</span><span><b>Your full name</b> — a score with no name does not count</span></li>
+            <li class="flex items-start"><span class="num">2</span><span><b>Your score</b> — for example 82/100</span></li>
+            <li class="flex items-start"><span class="num">3</span><span><b>Your percentage and PASS or FAIL</b></span></li>
+            <li class="flex items-start"><span class="num">4</span><span><b>The date and time</b> you submitted</span></li>
+          </ul>
+          <div class="bg-white border border-brand-200 rounded-xl p-3 mt-4">
+            <p class="text-xs font-bold text-ink-900 mb-1">How to take a screenshot</p>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              <b>Android:</b> power + volume DOWN together<br>
+              <b>iPhone:</b> side button + volume UP (older models: side + home)<br>
+              <b>Windows:</b> Windows key + Shift + S<br>
+              <b>Mac:</b> Cmd + Shift + 4</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border-2 border-teal-500 rounded-xl px-4 py-4 mt-5">
+        <p class="text-sm font-bold uppercase tracking-wider text-teal-700 mb-2">
+          <i class="fa-solid fa-paper-plane mr-1"></i>Last step — do ONE of these</p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="flex items-start gap-3 bg-teal-50 rounded-lg px-3 py-3">
+            <span class="num" style="background:#0F7C80">1</span>
+            <p class="text-sm text-ink-900"><b>Turn it in on Google Classroom</b><br>
+              <span class="text-slate-600">Open the Week 4 Quiz assignment, attach your screenshot, and press <b>Turn in</b>.</span></p>
+          </div>
+          <div class="flex items-start gap-3 bg-teal-50 rounded-lg px-3 py-3">
+            <span class="num" style="background:#0F7C80">2</span>
+            <p class="text-sm text-ink-900"><b>Or send the screenshot to Ms. Maria</b><br>
+              <span class="text-slate-600">Send it directly to your instructor.</span></p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600 mt-3">You only need to do one of the two. You are not finished until your screenshot has been turned in or sent.</p>
+      </div>
+      <div class="bg-brand-500 text-white rounded-xl px-4 py-3 mt-3">
+        <p class="text-sm font-bold"><i class="fa-solid fa-triangle-exclamation mr-1"></i>
+          Do not crop out your name or the date. A screenshot showing only the percentage cannot be marked.</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-3 mb-6 no-print">
+      <button onclick="window.print()" class="rounded-lg bg-white border border-slate-300 px-4 py-2.5 text-sm font-semibold hover:bg-slate-50"><i class="fa-solid fa-print mr-1"></i> Print / save as PDF</button>
+      <button id="btn-retake" class="rounded-lg bg-brand-500 hover:bg-brand-600 text-white px-4 py-2.5 text-sm font-bold"><i class="fa-solid fa-rotate-right mr-1"></i> Take it again</button>
+      <span id="mail-status" class="text-xs text-slate-500 self-center"></span>
+    </div>
+    <div id="review" class="space-y-3"></div>
+  </div>
+</section>
+
+<footer class="no-print text-center text-xs text-slate-500 py-8">
+  CNA Levels 4 &amp; 5 · Week 4 · Prepared by Maria Tongga, BSN, RN, RM · Based on WHO standards and facility policy
+</footer>
+
+<script>
+/* ══════════════════════ CONFIG ══════════════════════ */
+const CONFIG = {
+  title: "CNA Levels 4 & 5 — Week 4 Quiz (Ch 13 · 14 · 23 · 27)",
+  instructor: "Maria Tongga, BSN, RN, RM",
+  // To schedule the exam, put a future Doha time here, e.g. "2026-09-25T16:30:00+03:00"
+  releaseISO: "2026-01-01T08:00:00+03:00",
+  email: "mariaeftongga@gmail.com",
+  minutes: 150,
+  maxAttempts: 5,   // hard limit. 0 would mean unlimited.
+  passPct: 75
+};
+
+/* ══════════════════════ REVIEWER ══════════════════════ */
+const REVIEWER = [
+ { ch:"Chapter 13", title:"Body mechanics — protecting your back", points:[
+   "<b>Base of support:</b> the area under your feet. Feet apart, shoulder width, one slightly forward. <b>Centre of gravity:</b> about hip level \u2014 bend your knees and it drops, making you steadier. <b>Keep the load close</b> \u2014 the further from your body, the heavier it feels.",
+   "<b>The six rules:</b> feet apart \u00b7 bend your knees \u00b7 hold it close \u00b7 never twist (pivot instead) \u00b7 push up with your legs \u00b7 count together \u201cone, two, three\u201d.",
+   "<b>Twisting while holding a weight</b> is the single most common cause of back injury \u2014 not heavy lifting.",
+   "<b>Four questions before you move anyone:</b> what does the care plan say \u00b7 do I need help \u00b7 do I have the equipment \u00b7 does the person know the plan.",
+   "<b>Instead of lifting:</b> slide with a slide sheet \u00b7 push or pull \u00b7 roll \u00b7 raise the bed to your waist \u00b7 let the person do what they can.",
+   "<b>Never:</b> lift alone when the plan says two \u00b7 lift under the arms (it injures the resident\u2019s shoulders and nerves) \u00b7 catch a falling person \u00b7 work at a bed left at knee height \u00b7 use a hoist you are not trained on."]},
+ { ch:"Chapter 13", title:"Positioning", points:[
+   "<b>Reposition at least every TWO HOURS.</b> Staying still causes pressure injuries, pneumonia, contractures, muscle atrophy, blood clots, constipation and low mood.",
+   "<b>Supine</b> = flat on the back. <b>Prone</b> = on the abdomen. <b>Lateral</b> = on the side. <b>Fowler\u2019s</b> = head of bed up 45\u201360\u00b0. <b>Semi-Fowler\u2019s</b> = 30\u201345\u00b0. <b>Sims\u2019</b> = on the left side, half turned forward, upper leg bent.",
+   "<b>Pressure points \u2014 on the back:</b> back of the head, shoulder blades, elbows, base of the spine, heels. <b>On the side:</b> ear, shoulder, hip, inside of the knees, ankle. <b>Sitting:</b> base of the spine, buttocks, backs of the thighs, heels.",
+   "<b>Redness that stays red when pressed</b> is stage one of a pressure injury \u2014 report it the same shift. <b>Never massage a red area</b> \u2014 it damages the tissue underneath.",
+   "<b>Devices:</b> footboard (prevents foot drop) \u00b7 trochanter roll (stops the leg rolling outwards) \u00b7 hand roll (stops fingers curling) \u00b7 bed cradle (lifts bedding off the feet) \u00b7 slide sheet (moves without dragging the skin).",
+   "<b>Moving up the bed:</b> two people, slide sheet, bed at waist height, count together. Never pull on the arms, shoulders or armpits. <b>Logrolling</b> keeps the spine straight and needs two or three people."]},
+ { ch:"Chapter 14", title:"Transfers", points:[
+   "<b>Before any transfer:</b> check the care plan \u00b7 lock the bed and chair, footplates up \u00b7 non-slip shoes on \u00b7 bed low enough that her feet are flat on the floor. <b>The chair goes on her STRONG side.</b>",
+   "<b>Transfer (gait) belt:</b> over clothing, two fingers underneath, held underhand. NOT over a wound, ostomy, feeding tube, pacemaker or recent operation. <b>Never hold under the arms.</b>",
+   "<b>Dangling:</b> sit her on the edge with feet flat for 1\u20135 minutes before standing. Stay with her. Check for dizziness, pallor, sweating, fast pulse. This prevents <b>orthostatic hypotension</b> \u2014 the blood pressure drop that causes first-minute falls.",
+   "<b>Bed to chair:</b> chair on the strong side \u2192 stand together with your knees blocking hers, on a count of three \u2192 <b>pivot, do not twist</b> \u2192 lower together as her hands reach back for the armrests \u2192 check comfort and call light.",
+   "<b>Stop the transfer if:</b> she feels dizzy or faint \u00b7 her legs will not take weight \u00b7 she is in pain \u00b7 she becomes frightened \u00b7 you realise you need a second person. Stopping half-way is safe.",
+   "<b>Mechanical lift:</b> never alone, never untrained. Check the sling and the weight limit every time."]},
+ { ch:"Chapter 23", title:"Exercise and activity", points:[
+   "<b>Bedrest complications:</b> pressure injuries \u00b7 contractures \u00b7 muscle atrophy \u00b7 pneumonia \u00b7 blood clots \u00b7 constipation \u00b7 urine infection \u00b7 dizziness on standing \u00b7 low mood. Movement prevents all of them.",
+   "<b>Range of motion:</b> ACTIVE (the person does it) \u00b7 ACTIVE-ASSISTED (they do it, you help) \u00b7 PASSIVE (you move the joint for them). Encourage the most active version they can manage.",
+   "<b>ROM rules:</b> never force past where the joint wants to go \u00b7 stop at the point of pain \u00b7 support the limb <b>above and below</b> the joint \u00b7 move slowly, never jerk \u00b7 never exercise the neck unless told to. Usually 3\u20135 repetitions.",
+   "<b>Walking:</b> gait belt on, shoes on, floor clear. <b>You stand on her WEAK side</b>, slightly behind, holding the belt from below. Walk at her pace. Know where the nearest chair is.",
+   "<b>The cane goes on the STRONG side</b> and moves forward with the weak leg. <b>Walker:</b> all four points on the floor before she steps. <b>Crutches:</b> weight on the hands, never on the armpits.",
+   "<b>If she starts to fall:</b> never catch her. Ease her to the floor, protect the head, stay, call the nurse. Do not lift her up \u2014 the nurse checks first."]},
+ { ch:"Chapter 27", title:"Rehabilitation and restorative care", points:[
+   "<b>Rehabilitation</b> = getting function back after illness or injury. Led by therapists, with goals and an end point.",
+   "<b>Restorative care</b> = keeping that function. Every day, led by the nursing team \u2014 mostly by you \u2014 and it never ends while the person is in your care.",
+   "<b>Do WITH, not FOR.</b> Hand her the flannel and wait. Prompt rather than take over. Break the task into single steps. Allow the time it takes.",
+   "Every task you do for a person who could do it themselves takes a little more of their independence away \u2014 permanently.",
+   "<b>Prosthesis vs orthosis:</b> a prosthesis REPLACES a missing part (a leg, an arm) \u00b7 an orthosis SUPPORTS or corrects a part she still has (a brace, a splint). You never adjust or repair either \u2014 you check the skin underneath and report.",
+   "<b>Assistive devices:</b> built-up cutlery handles, plate guard, non-slip mat (eating) \u00b7 dressing stick, button hook, elastic laces (dressing) \u00b7 long-handled sponge, shower chair, grab rails (washing) \u00b7 raised toilet seat, grab bars, commode (toileting).",
+   "<b>The whole person:</b> a person who could walk last month is grieving. Fatigue is not laziness. Over-praise is patronising. Routine is what makes independence possible."]}
+];
+
+/* ══════════════════════ EXAM PARTS ══════════════════════ */
+const PARTS = [
+  { n:1, name:"Part 1 · Identification", info:"Write the correct word or term. Spelling may be slightly different; capital letters do not matter." },
+  { n:2, name:"Part 2 · True or False", info:"Choose True or False." },
+  { n:3, name:"Part 3 · Multiple Choice", info:"Choose the best answer." },
+  { n:4, name:"Part 4 · Case Study", info:"Read each case, then answer the questions about it." },
+  { n:5, name:"Part 5 · Drag and Drop", info:"Drag each card into the correct box — or tap a card, then tap the box. Tap a card in a box to send it back. All boxes must be filled." }
+];
+
+/* ══════════════════════ QUESTION BANK (100) ══════════════════════ */
+const TF = ["True","False"];
+const QUESTIONS = [
+{"p":1,"d":"Ch 13 · Body mechanics","t":"concept","q":"Using your body so a load is moved with the least strain on your muscles and joints.","a":["body mechanics"],"e":"Body mechanics."},
+{"p":1,"d":"Ch 13 · Body mechanics","t":"concept","q":"The area under your feet that keeps you steady.","a":["base of support"],"e":"The base of support. Feet apart, shoulder width, one slightly forward."},
+{"p":1,"d":"Ch 13 · Body mechanics","t":"concept","q":"Turning by moving your feet instead of twisting your spine.","a":["pivot","pivoting"],"e":"Pivoting. Twisting under load is the most common cause of back injury."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"Lying flat on the back.","a":["supine"],"e":"Supine."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"Lying on the side.","a":["lateral","lateral position","side lying","side-lying"],"e":"Lateral."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"The position with the head of the bed raised 45 to 60 degrees.","a":["fowlers","fowler","fowlers position","fowler's","fowler's position"],"e":"Fowler’s position. Semi-Fowler’s is 30 to 45 degrees."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"On the left side, half turned towards the front, with the upper leg bent.","a":["sims","sims position","sim's","sims'","sims' position"],"e":"Sims’ position."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"The damage that happens when the skin stays still and the bone inside slides.","a":["shearing","shear"],"e":"Shearing. The blood vessels underneath tear, and the skin can look fine for a day or two."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"A muscle permanently shortened and a joint permanently stiffened.","a":["contracture","contractures"],"e":"A contracture. Prevented by repositioning and range-of-motion exercises."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"Muscle wasting from not being used.","a":["atrophy","muscle atrophy"],"e":"Atrophy."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"A rolled towel placed along the outer thigh to stop the leg rolling outwards.","a":["trochanter roll","trochanter"],"e":"A trochanter roll."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"The device that keeps the feet at a right angle and prevents foot drop.","a":["footboard","foot board"],"e":"A footboard."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"The sheet that lets you move a person without dragging their skin.","a":["slide sheet","sliding sheet"],"e":"A slide sheet. Dragging causes a friction injury."},
+{"p":1,"d":"Ch 13 · Positioning","t":"concept","q":"Turning a person as one piece so the spine stays straight.","a":["logrolling","log rolling","log-rolling","logroll"],"e":"Logrolling. It needs two or three people and the nurse’s instruction."},
+{"p":1,"d":"Ch 14 · Transfers","t":"concept","q":"Moving a person from one surface to another.","a":["transfer","transferring"],"e":"A transfer."},
+{"p":1,"d":"Ch 14 · Transfers","t":"concept","q":"The belt around the waist that you hold to steady or move a person.","a":["gait belt","transfer belt","gaitbelt"],"e":"A gait belt, also called a transfer belt."},
+{"p":1,"d":"Ch 14 · Transfers","t":"concept","q":"Sitting a person on the edge of the bed with their feet flat before standing them.","a":["dangling","dangle"],"e":"Dangling."},
+{"p":1,"d":"Ch 14 · Transfers","t":"concept","q":"Blood pressure dropping when a person stands up, causing dizziness.","a":["orthostatic hypotension","postural hypotension","orthostatic"],"e":"Orthostatic hypotension."},
+{"p":1,"d":"Ch 23 · Exercise","t":"concept","q":"Moving a joint as far as it comfortably goes.","a":["range of motion","rom","range of movement"],"e":"Range of motion."},
+{"p":1,"d":"Ch 27 · Rehabilitation","t":"concept","q":"Any tool that helps a person do something for themselves.","a":["assistive device","adaptive device","assistive devices"],"e":"An assistive device."},
+{"p":2,"d":"Ch 13 · Body mechanics","t":"tf","q":"You should keep your feet together when lifting so you stay balanced.","o":["True","False"],"a":1,"e":"False. Feet apart, shoulder width, one slightly forward — that is your base of support."},
+{"p":2,"d":"Ch 13 · Body mechanics","t":"tf","q":"Twisting while holding a weight is the most common cause of back injury.","o":["True","False"],"a":0,"e":"True. Move your feet and pivot instead."},
+{"p":2,"d":"Ch 13 · Body mechanics","t":"tf","q":"Holding a load away from your body makes it feel lighter.","o":["True","False"],"a":1,"e":"False. The further from your body, the heavier it feels. Hold it close."},
+{"p":2,"d":"Ch 13 · Body mechanics","t":"tf","q":"It is acceptable to lift alone if the unit is short-staffed.","o":["True","False"],"a":1,"e":"False. Never. The care plan says how many assists, and being busy is not a reason."},
+{"p":2,"d":"Ch 13 · Body mechanics","t":"tf","q":"Raising the bed to your waist before moving someone protects your back.","o":["True","False"],"a":0,"e":"True. It takes five seconds and prevents years of strain."},
+{"p":2,"d":"Ch 13 · Positioning","t":"tf","q":"A person who cannot move themselves should be repositioned at least every two hours.","o":["True","False"],"a":0,"e":"True. It is the single most important number in this chapter."},
+{"p":2,"d":"Ch 13 · Positioning","t":"tf","q":"A person sitting in a chair needs repositioning less often than a person lying in bed.","o":["True","False"],"a":1,"e":"False. Sitting puts more pressure on a smaller area. Help her shift her weight about every hour."},
+{"p":2,"d":"Ch 13 · Positioning","t":"tf","q":"You should massage a red area to improve the circulation.","o":["True","False"],"a":1,"e":"False. Never massage a red area — it damages the tissue underneath."},
+{"p":2,"d":"Ch 13 · Positioning","t":"tf","q":"Redness that stays red when you press it is normal and does not need reporting.","o":["True","False"],"a":1,"e":"False. That is stage one of a pressure injury. Report it the same shift."},
+{"p":2,"d":"Ch 13 · Positioning","t":"tf","q":"Logrolling can be done safely by one person.","o":["True","False"],"a":1,"e":"False. It needs two or three people, and only on the nurse’s instruction."},
+{"p":2,"d":"Ch 14 · Transfers","t":"tf","q":"The chair should be placed on the person’s weak side for a transfer.","o":["True","False"],"a":1,"e":"False. On the STRONG side — she pushes up with her strong side."},
+{"p":2,"d":"Ch 14 · Transfers","t":"tf","q":"A gait belt is worn over clothing, not against bare skin.","o":["True","False"],"a":0,"e":"True. And you must be able to slide two fingers underneath it."},
+{"p":2,"d":"Ch 14 · Transfers","t":"tf","q":"You may hold a person under the arms to lift them if no belt is available.","o":["True","False"],"a":1,"e":"False. Never. It dislocates shoulders and damages nerves."},
+{"p":2,"d":"Ch 14 · Transfers","t":"tf","q":"A person should sit on the edge of the bed for a minute or two before standing.","o":["True","False"],"a":0,"e":"True. This is dangling, and it prevents the dizziness that causes first-minute falls."},
+{"p":2,"d":"Ch 14 · Transfers","t":"tf","q":"Once a transfer has started you should always finish it.","o":["True","False"],"a":1,"e":"False. Stopping half-way is safe. Carrying on because you started is how people fall."},
+{"p":2,"d":"Ch 23 · Exercise","t":"tf","q":"A week in bed causes muscle strength to be lost quickly and regained slowly.","o":["True","False"],"a":0,"e":"True. That is why every care plan pushes movement."},
+{"p":2,"d":"Ch 23 · Exercise","t":"tf","q":"In passive range of motion the person moves the joint themselves.","o":["True","False"],"a":1,"e":"False. In PASSIVE you move the joint for them. In ACTIVE they do it themselves."},
+{"p":2,"d":"Ch 23 · Exercise","t":"tf","q":"You should push a stiff joint a little past the point of pain to improve movement.","o":["True","False"],"a":1,"e":"False. Stop at the point of pain, always. Forcing causes injury."},
+{"p":2,"d":"Ch 23 · Exercise","t":"tf","q":"The cane is held on the person’s strong side.","o":["True","False"],"a":0,"e":"True. And it moves forward together with the weak leg."},
+{"p":2,"d":"Ch 27 · Rehabilitation","t":"tf","q":"Doing a task for a resident who could do it themselves is kind and saves them effort.","o":["True","False"],"a":1,"e":"False. It takes a little more of their independence away, permanently."},
+{"p":3,"d":"Ch 13 · Body mechanics","t":"mc","q":"Which position gives you the widest base of support?","o":["Feet together","Standing on one leg","Feet crossed","Feet apart, one slightly forward"],"a":3,"e":"Feet apart with one slightly forward — steadier in every direction."},
+{"p":3,"d":"Ch 13 · Body mechanics","t":"mc","q":"You need to turn while holding a heavy load. What do you do?","o":["Twist from the waist","Bend sideways","Move your feet and pivot","Turn your head first"],"a":2,"e":"Pivot. Twisting under load is the worst movement for a spine."},
+{"p":3,"d":"Ch 13 · Body mechanics","t":"mc","q":"Which should you try FIRST instead of lifting?","o":["Slide the person using a slide sheet","Lift quickly to get it over with","Ask the person to hold your neck","Lift from the shoulders"],"a":0,"e":"Slide, push, pull or roll — all are better than lifting the same weight."},
+{"p":3,"d":"Ch 13 · Body mechanics","t":"mc","q":"The care plan says two assists. Your colleague is busy. What do you do?","o":["Do it alone carefully","Ask the resident to help you lift","Ask a visitor to help","Wait, and prepare the equipment meanwhile"],"a":3,"e":"She is not in danger lying where she is. You are both in danger if you do it alone."},
+{"p":3,"d":"Ch 13 · Body mechanics","t":"mc","q":"Why must you never pull a person up by the arms?","o":["It is uncomfortable","It wrinkles the sheets","It is slower than using a belt","It dislocates shoulders and damages nerves"],"a":3,"e":"Shoulder and nerve injury — and the person injured is the resident."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"The head of her bed is raised and she slowly slides down it. What is damaging her skin?","o":["Friction only","Nothing, if she is comfortable","Shearing","Atrophy"],"a":2,"e":"Shearing. Her skin grips the sheet while her skeleton keeps sliding, and the vessels underneath tear."},
+{"p":3,"d":"Ch 27 · Rehabilitation","t":"mc","q":"A resident has a prosthetic leg. What is your job as a nursing assistant?","o":["Adjust it if it does not fit","Repair the straps yourself","Check the skin where it sits and report any redness","Put it on after she has stood up"],"a":2,"e":"Check the skin daily and report. You never adjust or repair a prosthesis, and it goes on before she stands."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"Which is a pressure point when a person lies on their side?","o":["The back of the head","The shoulder blades","The hip and the ear","The base of the spine"],"a":2,"e":"On the side: ear, shoulder, hip, inside of the knees, ankle."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"You find redness over the tailbone that stays red when pressed. You should:","o":["Report it the same shift and reposition her","Massage it to improve circulation","Cover it with a dressing","Wait and check again tomorrow"],"a":0,"e":"It is stage one of a pressure injury. Never massage it."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"What is a trochanter roll used for?","o":["To stop the leg rolling outwards","To support the head","To keep the fingers open","To lift the bedding"],"a":0,"e":"A rolled towel along the outer thigh."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"In the lateral position, where do the pillows go?","o":["Under the head only","Under both feet","Nowhere — pillows cause pressure","Behind the back and between the knees"],"a":3,"e":"Behind the back for support, between the knees so they do not press together."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"Dragging a person across a sheet causes:","o":["Nothing, if done quickly","Better circulation","Less work for you","A friction injury to the skin"],"a":3,"e":"Use a slide sheet. Friction injuries are preventable."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"Which complication of bedrest affects the lungs?","o":["Contractures","Constipation","Atrophy","Pneumonia"],"a":3,"e":"Secretions pool when a person lies still. Pneumonia follows."},
+{"p":3,"d":"Ch 13 · Positioning","t":"mc","q":"When is logrolling used?","o":["When the spine must stay straight","For every repositioning","Only for people who can help","When you are alone"],"a":0,"e":"After spinal surgery or injury — and it needs two or three people."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"Where should the chair be placed for a transfer?","o":["On the weak side","On the strong side","At the foot of the bed","Anywhere convenient"],"a":1,"e":"On the strong side — she pushes up with it."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"How snug should a gait belt be?","o":["As tight as possible","Loose enough to move around","Two fingers should slide underneath","It does not matter"],"a":2,"e":"Snug, with two fingers underneath."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"Where must a gait belt NOT be placed?","o":["Over a wound, ostomy or feeding tube","Over clothing","Around the waist","Below the ribs"],"a":0,"e":"Not over a wound, ostomy, feeding tube, pacemaker or recent operation."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"How do you hold a gait belt?","o":["Underhand, palms up, gripping from below","Overhand, from above","By the buckle","By the person’s clothing"],"a":0,"e":"Underhand gives you lifting power and does not slip."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"Why is dangling important?","o":["It lets blood pressure settle so she does not faint","It wakes the person up","It saves time","It is a comfort measure only"],"a":0,"e":"It prevents orthostatic hypotension — the cause of many first-minute falls."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"How long should a person dangle before standing?","o":["A few seconds","Fifteen minutes","Half an hour","One to five minutes"],"a":3,"e":"One to five minutes, and you stay with her throughout."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"During a transfer, where are your knees?","o":["Behind you","Outside hers, blocking them","Together","It does not matter"],"a":1,"e":"Blocking her knees so they cannot give way and let her slide down."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"She says she feels dizzy half-way through standing. You should:","o":["Finish quickly","Tell her it will pass","Sit her back down, stay with her, and report","Ask her to close her eyes"],"a":2,"e":"Stop. Stopping half-way is always safe."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"Which is true of a mechanical lift?","o":["One trained person is enough","Always two people, and only if trained","Any staff member may use it","The sling does not need checking"],"a":1,"e":"Two people, trained, with the sling and weight limit checked every time."},
+{"p":3,"d":"Ch 14 · Transfers","t":"mc","q":"Before a transfer, the footplates of the wheelchair should be:","o":["Up and out of the way","Down and ready","Removed completely","It does not matter"],"a":0,"e":"Up, so she does not catch her legs or stand on them."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"Which is ACTIVE range of motion?","o":["You move the joint for her","She moves it and you help","A machine moves it","She moves the joint herself"],"a":3,"e":"Active = the person does it. Always encourage the most active version she can manage."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"Where do you support the limb during range of motion?","o":["Above and below the joint","At the hand only","At the shoulder only","You do not support it"],"a":0,"e":"Above and below, so the joint is not dragged."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"How far do you move a joint?","o":["As far as it will go, even if it hurts","Only a few centimetres","Until you hear a click","To the point of pain, then stop"],"a":3,"e":"Stop at the point of pain, always. Never force."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"Which joint must you NOT exercise unless specifically told to?","o":["The neck","The wrist","The ankle","The elbow"],"a":0,"e":"The neck. Leave it unless you have specific instructions."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"When walking with a person, where do you stand?","o":["In front of her","On her strong side","On her weak side, slightly behind","Beside the wall"],"a":2,"e":"On the weak side, slightly behind, holding the belt from below."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"Which hand holds the cane?","o":["The strong side","The weak side","Either hand","Both hands"],"a":0,"e":"The strong side — and the cane moves forward together with the weak leg."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"What must happen before a person using a walker takes a step?","o":["All four points are on the floor","The walker is lifted and carried","She leans on it with both elbows","The brakes are released"],"a":0,"e":"All four points down, then step. Never lift and walk at the same time."},
+{"p":3,"d":"Ch 23 · Exercise","t":"mc","q":"Why must weight never rest on the armpits with crutches?","o":["It damages nerves","It is uncomfortable","It makes the crutches slip","It slows walking"],"a":0,"e":"Weight goes on the hands. Resting on the armpits damages nerves."},
+{"p":3,"d":"Ch 27 · Rehabilitation","t":"mc","q":"What is the goal of rehabilitation?","o":["The highest level of function this person can reach","Complete cure","Keeping the person comfortable in bed","Returning to work"],"a":0,"e":"The highest level this person can reach — which may be washing her own face."},
+{"p":3,"d":"Ch 27 · Rehabilitation","t":"mc","q":"Who carries out most restorative care?","o":["The physiotherapist","The doctor","The family","The nursing assistant"],"a":3,"e":"The nursing team, mostly the nursing assistant, every day."},
+{"p":3,"d":"Ch 27 · Rehabilitation","t":"mc","q":"A resident can dress herself slowly. You are behind on your round. You should:","o":["Dress her quickly to save time","Let her dress herself and help only where needed","Tell her to wait until later","Ask the family to do it"],"a":1,"e":"Do with, not for. The time you save costs her the skill."},
+{"p":4,"c":"A","t":"mc","d":"Case A · Body mechanics","s":"<b>Case A.</b> Mrs. Ahmed has slipped down the bed. The bed is at knee height, her care plan says two assists, and your colleague is answering a call light. You lean over, grip her under both arms and pull her up on your own.","q":"A1. Which error injures YOU?","o":["Bending over a bed left at knee height","Pulling under the arms","Not explaining the plan","Not using a slide sheet"],"a":0,"e":"Bending at knee height and pulling is what strains your lower back."},
+{"p":4,"c":"A","t":"mc","d":"Case A · Body mechanics","q":"A2. Which error injures HER?","o":["The bed height","Being pulled under the arms","The missing slide sheet","The lack of explanation"],"a":1,"e":"Pulling under the arms dislocates shoulders and damages nerves."},
+{"p":4,"c":"A","t":"mc","d":"Case A · Body mechanics","q":"A3. What should you have done while waiting for your colleague?","o":["Started the move alone anyway","Raised the bed, got the slide sheet, explained the plan to her","Left the room to do another task","Asked a visitor to help"],"a":1,"e":"Nothing is lost by waiting, and the preparation makes the move faster when help arrives."},
+{"p":4,"c":"A","t":"mc","d":"Case A · Body mechanics","q":"A4. She says her shoulder hurts afterwards. You should:","o":["Wait and see if it settles","Write it at the end of the shift","Report it immediately as a change in condition, with what happened","Tell her to rest it"],"a":2,"e":"Report straight away, including what happened. Hiding it turns an error into negligence."},
+{"p":4,"c":"B","t":"mc","d":"Case B · Transfers","s":"<b>Case B.</b> Mr. Saleh had a stroke and his left side is weak. His plan says one assist with a gait belt. You put the wheelchair on his left, help him sit up and immediately stand him. He says he feels dizzy. You continue, and as he turns his knees buckle.","q":"B1. Where should the chair have been?","o":["On his left, where it was","On his right — his strong side","At the foot of the bed","Behind him"],"a":1,"e":"The chair goes on the strong side so he can push up with it."},
+{"p":4,"c":"B","t":"mc","d":"Case B · Transfers","q":"B2. Which step was skipped?","o":["Dangling — sitting on the edge before standing","Putting the belt on","Locking the brakes","Explaining the move"],"a":0,"e":"He was stood straight up from sitting, with no time for his blood pressure to settle."},
+{"p":4,"c":"B","t":"mc","d":"Case B · Transfers","q":"B3. What should you have done when he said “dizzy”?","o":["Continued quickly","Told him to breathe deeply","Sat him back down, stayed with him, and reported it","Asked him to close his eyes"],"a":2,"e":"Stop. Dizziness is the warning that comes before the fall."},
+{"p":4,"c":"B","t":"mc","d":"Case B · Transfers","q":"B4. His knees have buckled. What do you do NOW?","o":["Hold him up until help arrives","Lift him into the chair","Let go and step back","Ease him down to the bed or the floor, protect his head, stay and call the nurse"],"a":3,"e":"Never try to hold up a falling adult. Ease him down and stay with him."},
+{"p":4,"c":"C","t":"mc","d":"Case C · Immobility","s":"<b>Case C.</b> Mrs. Noor has been in bed for five days after an infection. She has not been turned regularly. You notice redness over her tailbone that stays red when pressed, her left knee will not straighten fully, and she is very weak when she tries to sit up.","q":"C1. The redness over the tailbone is:","o":["A bruise","Normal for someone in bed","An allergy","Stage one of a pressure injury"],"a":3,"e":"Redness that does not blanch when pressed is stage one. Report it the same shift."},
+{"p":4,"c":"C","t":"mc","d":"Case C · Immobility","q":"C2. The knee that will not straighten is becoming:","o":["Atrophy","A contracture","A pressure injury","Orthostatic hypotension"],"a":1,"e":"A contracture — the muscle has shortened and the joint has stiffened."},
+{"p":4,"c":"C","t":"mc","d":"Case C · Immobility","q":"C3. What prevents BOTH of these problems?","o":["Repositioning every two hours and range-of-motion exercises","Bed rest and painkillers","Massaging the red area","A softer mattress alone"],"a":0,"e":"Movement prevents both — and neither can be fully undone once established."},
+{"p":4,"c":"C","t":"mc","d":"Case C · Immobility","q":"C4. When you first sit her on the edge of the bed, what do you expect?","o":["She may be dizzy — so she dangles and you stay with her","She will be steady straight away","She should stand immediately to build strength","She will not need a gait belt"],"a":0,"e":"Five days in bed means her blood pressure will drop on sitting. Dangle, and stay."},
+{"p":4,"c":"D","t":"mc","d":"Case D · Rehabilitation","q":"D1. If you wash him this morning, what happens?","o":["Nothing — one morning makes no difference","He loses a little of the skill, and it is easier to ask again tomorrow","He will be more motivated tomorrow","The therapist will be pleased"],"a":1,"e":"Skills are kept by using them. This is exactly what restorative care means."},
+{"p":4,"c":"D","t":"mc","d":"Case D · Rehabilitation","q":"D2. What is the best response?","o":["Start it together, let him do what he can today, finish the rest without comment","Insist he does all of it himself","Do it all for him quickly","Leave him to manage alone"],"a":0,"e":"The middle answer protects both the skill and his dignity."},
+{"p":4,"c":"D","t":"mc","d":"Case D · Rehabilitation","q":"D3. What do you report to the nurse?","o":["The change itself: he is slower, frustrated and less willing than usual","Nothing — he was just tired","That he refused care","That the therapy is not working"],"a":0,"e":"A sudden loss of motivation or tolerance can mean pain, depression or infection. It is a clinical observation."},
+{"p":5,"d":"Ch 13 · Body mechanics","t":"order","q":"Put these in order for moving a person up the bed.","items":["Raise the bed to waist height and lock the wheels","Explain the plan and ask her to bend her knees","One of you each side, feet apart, knees bent","Count “one, two, three” and shift your weight","Check comfort, bed down, call light in reach"],"e":"Prepare, explain, position, count, check. The count is what makes two people move as one."},
+{"p":5,"d":"Ch 14 · Transfers","t":"order","q":"Put these in order for a bed-to-chair transfer.","items":["Chair on the strong side, brakes on, belt and shoes on","Dangle — sit her on the edge, feet flat","Stand together, your knees blocking hers","Pivot round in small steps","Lower together as her hands reach the armrests"],"e":"The dangle is the step most often skipped, and it is the one that prevents the fall."},
+{"p":5,"d":"Ch 14 · Transfers","t":"order","q":"Put the dangling steps in order.","items":["Raise the head of the bed and let her sit up","Swing the legs round, feet flat on the floor","Sit and wait one to five minutes","Check for dizziness, pallor, sweating and a fast pulse"],"e":"And you stay with her the whole time — that is the point of the step."},
+{"p":5,"d":"Ch 23 · Exercise","t":"order","q":"A person starts to fall while you are walking with her. Put your actions in order.","items":["Move behind or beside her, feet apart","Bring her towards your body using the belt","Ease her down your leg to the floor, protecting the head","Stay with her and call the nurse"],"e":"Never catch her. And never lift her up afterwards — the nurse checks first."},
+{"p":5,"d":"Ch 13 · Positioning","t":"order","q":"Put these in order of how quickly they develop in a person who is never moved.","items":["Pressure injury — within hours","Chest infection — within days","Contracture — within weeks","Permanent loss of walking — within months"],"e":"The speed is the point: skin damage starts before the end of a single shift."},
+{"p":5,"d":"Ch 13 · Positioning","t":"match","q":"Drag each description to the correct position.","left":["Supine","Prone","Lateral","Fowler’s"],"items":["Flat on the back","On the abdomen, head turned to one side","On the side","Head of the bed raised 45–60 degrees"],"e":"Supine, prone, lateral, Fowler’s — the four you will use and name every day."},
+{"p":5,"d":"Ch 13 · Positioning","t":"match","q":"Drag each device to what it does.","left":["Footboard","Trochanter roll","Hand roll","Bed cradle"],"items":["Prevents foot drop","Stops the leg rolling outwards","Stops the fingers curling","Lifts the bedding off the feet"],"e":"Four devices, four different jobs. All of them prevent a deformity that cannot be undone."},
+{"p":5,"d":"Ch 23 · Exercise","t":"match","q":"Drag each description to the right kind of range of motion.","left":["Active","Active-assisted","Passive","Not allowed without instruction"],"items":["The person moves the joint themselves","They move it and you help","You move the joint for them","Exercising the neck"],"e":"Always encourage the most active version the person can manage."},
+{"p":5,"d":"Ch 23 · Exercise","t":"match","q":"Drag the correct side to each question.","left":["Where the cane is held","Where YOU stand to walk with her","Where the chair goes for a transfer","Which leg moves forward with the cane"],"items":["Strong side","Weak side","Strong side","Weak leg"],"e":"Cane on the strong side, you on the weak side. These two are opposites and students reverse them."},
+{"p":5,"d":"Ch 27 · Rehabilitation","t":"match","q":"Drag each statement to the right term.","left":["Rehabilitation","Restorative care","Assistive device","Contracture"],"items":["Getting function back, led by therapists, with an end point","Keeping that function, every day, led by the nursing team","A tool that helps a person do something themselves","A permanently shortened muscle and stiffened joint"],"e":"The therapist teaches the skill. You are the reason she still has it in March."}
+];
+
+/* ══════════════════════ STATE ══════════════════════ */
+let ATTEMPTS = 0;
+try { ATTEMPTS = parseInt(localStorage.getItem("cna_wk4_attempts") || "0", 10) || 0; } catch(e) { ATTEMPTS = 0; }
+function bumpAttempt(){ ATTEMPTS++; try { localStorage.setItem("cna_wk4_attempts", String(ATTEMPTS)); } catch(e) {} }
+let SEL = null, DRAG = null;
+QUESTIONS.sort((a,b) => a.p - b.p);   // keep the five parts in order
+const S = { work:{}, name:"", email:"", idx:0, answers:new Array(QUESTIONS.length).fill(null), started:null, endsAt:null, timer:null, done:false };
+const $ = id => document.getElementById(id);
+const show = id => ["screen-lock","screen-home","screen-exam","screen-result"].forEach(s => $(s).classList.toggle("hidden", s !== id));
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const norm = s => String(s).toLowerCase().replace(/[^a-z0-9 ]/g,"").replace(/\s+/g," ").trim();
+
+/* ══════════════════════ SCREEN 0 · LOCK ══════════════════════ */
+function bootLock(){
+  const rel = new Date(CONFIG.releaseISO);
+  if (isNaN(rel) || Date.now() >= rel.getTime()) { buildReviewer(); show("screen-home"); return; }
+  $("lock-when").textContent = rel.toLocaleString("en-GB",{dateStyle:"full", timeStyle:"short"});
+  show("screen-lock");
+  const tick = () => {
+    let left = rel.getTime() - Date.now();
+    if (left <= 0) { clearInterval(iv); buildReviewer(); show("screen-home"); return; }
+    left = Math.floor(left/1000);
+    $("cd-h").textContent = String(Math.floor(left/3600)).padStart(2,"0");
+    $("cd-m").textContent = String(Math.floor(left%3600/60)).padStart(2,"0");
+    $("cd-s").textContent = String(left%60).padStart(2,"0");
+  };
+  const iv = setInterval(tick, 1000); tick();
+}
+
+/* ══════════════════════ SCREEN 1 ══════════════════════ */
+function buildReviewer(){
+  $("reviewer").innerHTML = REVIEWER.map((m,i) => `
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <button class="acc w-full flex items-center gap-3 text-left px-5 py-4 hover:bg-slate-50" data-i="${i}">
+        <span class="w-9 h-9 rounded-lg bg-teal-100 text-teal-700 grid place-items-center text-xs font-bold shrink-0">${i+1}</span>
+        <span class="flex-1 min-w-0">
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-brand-600">${m.ch}</span>
+          <span class="block font-display font-bold text-ink-900">${m.title}</span>
+        </span>
+        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform" data-chev="${i}"></i>
+      </button>
+      <div class="hidden px-5 pb-5" data-panel="${i}">
+        <ul class="space-y-2 text-sm text-ink-800 leading-relaxed border-t border-slate-100 pt-4">
+          ${m.points.map(p => `<li class="flex gap-2"><i class="fa-solid fa-circle text-[5px] text-brand-400 mt-2"></i><span>${p}</span></li>`).join("")}
+        </ul>
+      </div>
+    </div>`).join("");
+  document.querySelectorAll(".acc").forEach(b => b.onclick = () => {
+    const i = b.dataset.i, p = document.querySelector(`[data-panel="${i}"]`), c = document.querySelector(`[data-chev="${i}"]`);
+    p.classList.toggle("hidden"); c.classList.toggle("rotate-180");
+  });
+}
+function attemptsLeft(){ return CONFIG.maxAttempts > 0 ? Math.max(0, CONFIG.maxAttempts - ATTEMPTS) : Infinity; }
+function renderAttempts(){
+  const el = $("attempts-left"); if (!el) return;
+  if (CONFIG.maxAttempts <= 0) { el.textContent = ""; return; }
+  const left = attemptsLeft();
+  if (left === 0) {
+    el.innerHTML = '<span class="text-brand-700">\u26a0\ufe0f ' +
+      'You have used all ' + CONFIG.maxAttempts + ' attempts. This quiz is now locked \u2014 please speak with your instructor.</span>';
+    $("warn-box").className = "bg-brand-100 border-2 border-brand-600 rounded-xl p-4";
+    const b = $("btn-start");
+    b.disabled = true;
+    b.innerHTML = '<i class="fa-solid fa-lock mr-1"></i> Locked \u2014 no attempts left';
+  } else {
+    el.innerHTML = 'Attempts used: <b>' + ATTEMPTS + ' of ' + CONFIG.maxAttempts + '</b> &nbsp;·&nbsp; ' +
+      (left === 1 ? '<span class="text-brand-700"><b>This is your LAST attempt.</b></span>'
+                  : '<b>' + left + '</b> left');
+  }
+}
+function validReg(){
+  const n = $("reg-name").value.trim(), e = $("reg-email").value.trim();
+  const ok = n.length >= 3 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  $("btn-start").disabled = !ok || attemptsLeft() === 0;
+  const msg = $("reg-msg");
+  if (e && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) { msg.textContent = "Please write a complete email address."; msg.classList.remove("hidden"); }
+  else msg.classList.add("hidden");
+}
+$("reg-name").addEventListener("input", validReg);
+$("reg-email").addEventListener("input", validReg);
+renderAttempts();
+
+/* ══════════════════════ SCREEN 2 · EXAM ══════════════════════ */
+$("btn-start").onclick = () => {
+  if (CONFIG.maxAttempts > 0 && ATTEMPTS >= CONFIG.maxAttempts) {
+    alert("You have used all " + CONFIG.maxAttempts + " attempts for this exam. Please speak with your instructor.");
+    return;
+  }
+  const left = attemptsLeft();
+  if (CONFIG.maxAttempts > 0 && !confirm(
+      "\u26a0\ufe0f  This uses one of your " + CONFIG.maxAttempts + " attempts.\n\n" +
+      "You have " + left + " left" + (left === 1 ? " \u2014 this is your LAST one." : ".") + "\n" +
+      "The timer starts now and does not stop, even if you close the page.\n\nStart the exam?")) return;
+  bumpAttempt();
+  S.name = $("reg-name").value.trim(); S.email = $("reg-email").value.trim();
+  S.started = new Date(); S.endsAt = Date.now() + CONFIG.minutes*60000; S.idx = 0; S.done = false;
+  S.answers = new Array(QUESTIONS.length).fill(null); S.work = {}; SEL = null; DRAG = null;
+  $("exam-name").textContent = S.name;
+  $("avatar").textContent = S.name.split(/\s+/).map(w => w[0]).slice(0,2).join("").toUpperCase();
+  show("screen-exam"); window.scrollTo(0,0);
+  renderQ(); renderPalette(); updateBar();
+  S.timer = setInterval(tickClock, 250); tickClock();
+};
+function tickClock(){
+  let left = Math.max(0, S.endsAt - Date.now());
+  const s = Math.floor(left/1000);
+  $("clock").textContent = String(Math.floor(s/60)).padStart(2,"0") + ":" + String(s%60).padStart(2,"0");
+  $("clock").classList.toggle("text-brand-600", s <= 300);
+  if (left <= 0 && !S.done) finish(true);
+}
+function renderQ(){
+  const i = S.idx, q = QUESTIONS[i], val = S.answers[i], P = partOf(q.p);
+  const first = QUESTIONS.findIndex(x => x.p === q.p);
+  const numInPart = i - first + 1, totalInPart = QUESTIONS.filter(x => x.p === q.p).length;
+  let input = "";
+  if (q.t === "mc" || q.t === "tf") {
+    const cols = q.t === "tf" ? "sm:grid-cols-2" : "";
+    input = `<div class="grid ${cols} gap-2">` + q.o.map((o,k) => `
+      <label class="flex items-start gap-3 rounded-xl border ${val===k?'border-brand-500 bg-brand-50':'border-slate-200 bg-white'} px-4 py-3 cursor-pointer hover:border-brand-300">
+        <input type="radio" name="opt" value="${k}" ${val===k?"checked":""} class="mt-1 accent-pink-500">
+        <span class="text-sm">${esc(o)}</span></label>`).join("") + `</div>`;
+  } else if (q.t === "order" || q.t === "match") {
+    if (!q._bank) { q._bank = q.items.map((_,k)=>k); let sd = i*97+13;
+      for (let k=q._bank.length-1;k>0;k--){ sd=(sd*1103515245+12345)&0x7fffffff; const j2=sd%(k+1); [q._bank[k],q._bank[j2]]=[q._bank[j2],q._bank[k]]; } }
+    const placed = Array.isArray(S.work[i]) ? S.work[i].slice() : new Array(q.items.length).fill(null);
+    const used = placed.filter(x => x !== null);
+    const labels = q.t === "order" ? q.items.map((_,k)=>"Step " + (k+1)) : q.left;
+    const chip = (k, inSlot) => `<span class="chip inline-block rounded-lg ${inSlot?'bg-brand-500 text-white':'bg-teal-500 text-white'} text-sm font-semibold px-3 py-2" draggable="true" data-k="${k}">${esc(q.items[k])}</span>`;
+    const free = q._bank.filter(k => !used.includes(k));
+    input = `
+      <p class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Cards</p>
+      <div id="bank" class="flex flex-wrap gap-2 mb-5 min-h-[3.25rem] p-3 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50">
+        ${free.length ? free.map(k=>chip(k,false)).join("") : '<span class="text-xs text-slate-400 self-center">All cards are placed. Tap a card below to send it back.</span>'}
+      </div>
+      <div class="space-y-2">
+        ${labels.map((lb,sl)=>`
+          <div class="flex items-stretch gap-2">
+            <div class="w-24 sm:w-44 shrink-0 rounded-lg bg-teal-100 text-teal-800 text-xs font-bold px-3 py-3 flex items-center">${esc(lb)}</div>
+            <div class="slot flex-1 rounded-lg border-2 border-dashed ${placed[sl]!==null?'border-brand-400 bg-brand-50':'border-slate-300 bg-white'} px-3 py-2.5 min-h-[3.25rem] flex items-center" data-s="${sl}">
+              ${placed[sl]!==null ? chip(placed[sl],true) : '<span class="text-xs text-slate-400">Drop a card here</span>'}
+            </div>
+          </div>`).join("")}
+      </div>`;
+  } else if (q.t === "select") {
+    input = `<select id="sel" class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-400 outline-none">
+      <option value="">— Choose your answer —</option>
+      ${q.o.map((o,k) => `<option value="${k}" ${val===k?"selected":""}>${esc(o)}</option>`).join("")}</select>`;
+  } else {
+    input = `<input id="txt" type="text" value="${val?esc(val):""}" placeholder="Write the word or term"
+      class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:ring-2 focus:ring-brand-400 outline-none">
+      <p class="text-xs text-slate-500 mt-2">One word or a short phrase. Capital letters do not matter.</p>`;
+  }
+  const caseBox = q.s ? `<div class="bg-teal-50 border border-teal-300 rounded-xl p-4 text-sm leading-relaxed mb-4">${q.s}</div>` : "";
+  $("qcard").innerHTML = `
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+      <span class="text-xs font-bold uppercase tracking-wider text-white bg-ink-900 rounded-full px-3 py-1">${esc(P.name)}</span>
+      <span class="text-xs text-slate-500 font-semibold">Item ${i+1} of ${QUESTIONS.length} · ${numInPart} of ${totalInPart} in this part</span>
+    </div>
+    <p class="text-[11px] text-slate-500 mb-4">${esc(P.info)}</p>
+    ${caseBox}
+    <div class="mb-3"><span class="text-[10px] font-bold uppercase tracking-wider text-teal-700 bg-teal-100 rounded-full px-2.5 py-1">${esc(q.d)}</span></div>
+    <p class="font-display text-lg sm:text-xl font-bold text-ink-900 leading-snug mb-5">${esc(q.q)}</p>
+    ${input}`;
+  if (q.t === "mc" || q.t === "tf") document.querySelectorAll('input[name="opt"]').forEach(r => r.onchange = e => save(+e.target.value));
+  if (q.t === "select") $("sel").onchange = e => save(e.target.value === "" ? null : +e.target.value);
+  if (q.t === "fill" || q.t === "concept") $("txt").oninput = e => save(e.target.value.trim() || null);
+  if (q.t === "order" || q.t === "match") {
+    const total = q.items.length;
+    const cur = () => Array.isArray(S.work[i]) ? S.work[i].slice() : new Array(total).fill(null);
+    const commit = arr => { S.work[i] = arr; save(arr.every(x => x !== null) ? arr.slice() : null); renderQ(); renderPalette(); };
+    const place = (k, sl) => { const a = cur(); const old = a.indexOf(k); if (old >= 0) a[old] = null; a[sl] = k; commit(a); };
+    const unplace = sl => { const a = cur(); a[sl] = null; commit(a); };
+    document.querySelectorAll("#qcard .chip").forEach(c => {
+      c.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", c.dataset.k); DRAG = +c.dataset.k; });
+      c.onclick = e => {
+        e.stopPropagation();
+        const inSlot = c.closest(".slot");
+        if (inSlot) { unplace(+inSlot.dataset.s); return; }
+        if (SEL === +c.dataset.k) { SEL = null; c.classList.remove("sel"); }
+        else { SEL = +c.dataset.k; document.querySelectorAll("#qcard .chip").forEach(x=>x.classList.remove("sel")); c.classList.add("sel"); }
+      };
+    });
+    document.querySelectorAll("#qcard .slot").forEach(sl => {
+      sl.addEventListener("dragover", e => { e.preventDefault(); sl.classList.add("over"); });
+      sl.addEventListener("dragleave", () => sl.classList.remove("over"));
+      sl.addEventListener("drop", e => { e.preventDefault(); sl.classList.remove("over");
+        const k = DRAG !== null ? DRAG : +e.dataTransfer.getData("text/plain"); DRAG = null;
+        if (!isNaN(k)) place(k, +sl.dataset.s); });
+      sl.onclick = () => { if (SEL !== null) { const k = SEL; SEL = null; place(k, +sl.dataset.s); } };
+    });
+    const bank = document.getElementById("bank");
+    if (bank) {
+      bank.addEventListener("dragover", e => e.preventDefault());
+      bank.addEventListener("drop", e => { e.preventDefault();
+        const k = DRAG !== null ? DRAG : +e.dataTransfer.getData("text/plain"); DRAG = null;
+        const a = cur(); const old = a.indexOf(k); if (old >= 0) { a[old] = null; commit(a); } });
+    }
+  }
+  $("btn-prev").disabled = i === 0;
+  $("btn-prev").classList.toggle("opacity-40", i === 0);
+  $("btn-next").innerHTML = i === QUESTIONS.length-1 ? 'Review &amp; submit <i class="fa-solid fa-flag-checkered ml-1"></i>' : 'Next <i class="fa-solid fa-arrow-right ml-1"></i>';
+}
+function save(v){ S.answers[S.idx] = v; const t = QUESTIONS[S.idx].t; if (t === "mc" || t === "tf") renderQ(); renderPalette(); updateBar(); }
+function renderPalette(){
+  let html = "";
+  PARTS.forEach(P => {
+    const idx = QUESTIONS.map((q,i) => q.p === P.n ? i : -1).filter(i => i >= 0);
+    if (!idx.length) return;
+    html += `<p class="text-[10px] font-bold uppercase tracking-wider text-brand-600 mt-3 mb-1.5 first:mt-0">${esc(P.name)}</p><div class="grid grid-cols-6 gap-2">`;
+    idx.forEach(i => {
+      const done = S.answers[i] !== null && S.answers[i] !== "";
+      const cls = i === S.idx ? "bg-brand-500 text-white" : done ? "bg-teal-500 text-white" : "bg-slate-200 text-slate-600 hover:bg-slate-300";
+      html += `<button class="pal-btn pal h-9 rounded-lg text-xs font-bold ${cls}" data-i="${i}">${i+1}</button>`;
+    });
+    html += `</div>`;
+  });
+  $("palette").innerHTML = html;
+  document.querySelectorAll(".pal").forEach(b => b.onclick = () => { S.idx = +b.dataset.i; renderQ(); renderPalette(); window.scrollTo({top:0,behavior:"smooth"}); });
+}
+function updateBar(){
+  const done = S.answers.filter(a => a !== null && a !== "").length;
+  $("bar").style.width = Math.round(done/QUESTIONS.length*100) + "%";
+  $("progress-txt").textContent = `${done} of ${QUESTIONS.length} saved`;
+}
+$("btn-next").onclick = () => {
+  if (S.idx < QUESTIONS.length-1) { S.idx++; renderQ(); renderPalette(); window.scrollTo({top:0,behavior:"smooth"}); }
+  else confirmSubmit();
+};
+$("btn-prev").onclick = () => { if (S.idx > 0) { S.idx--; renderQ(); renderPalette(); window.scrollTo({top:0,behavior:"smooth"}); } };
+$("btn-submit").onclick = confirmSubmit;
+function confirmSubmit(){
+  const blank = S.answers.filter(a => a === null || a === "").length;
+  const msg = blank ? `You have ${blank} item(s) with no answer. Submit anyway?` : "Submit your exam now?";
+  if (window.confirm(msg)) finish(false);
+}
+
+/* ══════════════════════ GRADING ══════════════════════ */
+function isCorrect(q, ans){
+  if (ans === null || ans === "") return false;
+  if (q.t === "mc" || q.t === "select" || q.t === "tf") return ans === q.a;
+  if (q.t === "order" || q.t === "match") return Array.isArray(ans) && ans.length === q.items.length && ans.every((v,k) => v === k);
+  return q.a.some(acc => norm(ans) === norm(acc) || norm(ans).includes(norm(acc)));
+}
+function answerText(q, ans){
+  if (ans === null || ans === "") return "No answer";
+  if (q.t === "order" || q.t === "match") {
+    const labels = q.t === "order" ? ans.map((_,k)=>(k+1)+".") : q.left.map(l=>l+" →");
+    return ans.map((v,k) => labels[k] + " " + (v===null ? "—" : q.items[v])).join("   ");
+  }
+  return (q.t === "mc" || q.t === "select" || q.t === "tf") ? q.o[ans] : String(ans);
+}
+function correctText(q){
+  if (q.t === "order") return q.items.map((t,k) => (k+1)+". "+t).join("   ");
+  if (q.t === "match") return q.items.map((t,k) => q.left[k]+" → "+t).join("   ");
+  return (q.t === "mc" || q.t === "select" || q.t === "tf") ? q.o[q.a] : q.a[0];
+}
+function partOf(n){ return PARTS.find(p => p.n === n); }
+function partScores(){ return PARTS.map(p => { const idx = QUESTIONS.map((q,i)=>q.p===p.n?i:-1).filter(i=>i>=0); const got = idx.filter(i => isCorrect(QUESTIONS[i], S.answers[i])).length; return { part:p, got, total: idx.length }; }); }
+
+function finish(auto){
+  S.done = true; clearInterval(S.timer);
+  const raw = QUESTIONS.reduce((n,q,i) => n + (isCorrect(q, S.answers[i]) ? 1 : 0), 0);
+  const pct = Math.round(raw / QUESTIONS.length * 1000)/10;
+  const pass = pct >= CONFIG.passPct;
+  const mins = Math.max(1, Math.round((Date.now() - S.started.getTime())/60000));
+  const when = new Date().toLocaleString("en-GB",{dateStyle:"medium", timeStyle:"short"});
+
+  $("score-card").innerHTML = `
+    <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+      <div class="text-center sm:text-left">
+        <p class="text-xs uppercase tracking-widest text-slate-400">Raw score</p>
+        <p class="font-display text-5xl font-bold">${raw}<span class="text-2xl text-slate-400">/${QUESTIONS.length}</span></p>
+        <p class="text-3xl font-bold ${pass?'text-teal-300':'text-brand-400'} mt-1">${pct}%</p>
+      </div>
+      <div class="flex-1">
+        <span class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold ${pass?'bg-teal-500 text-white':'bg-brand-500 text-white'}">
+          <i class="fa-solid ${pass?'fa-circle-check':'fa-circle-exclamation'}"></i> WRITTEN EXAM: ${pass?'PASS':'FAIL'} · required ${CONFIG.passPct}% (${Math.ceil(CONFIG.passPct/100*QUESTIONS.length)} of ${QUESTIONS.length})
+        </span>
+        <dl class="grid grid-cols-2 gap-x-6 gap-y-2 mt-4 text-sm">
+          <div><dt class="text-slate-400 text-xs uppercase tracking-wider">Candidate</dt><dd class="font-semibold">${esc(S.name)}</dd></div>
+          <div><dt class="text-slate-400 text-xs uppercase tracking-wider">Email</dt><dd class="font-semibold truncate">${esc(S.email)}</dd></div>
+          <div><dt class="text-slate-400 text-xs uppercase tracking-wider">Time used</dt><dd class="font-semibold">${mins} min${auto?' (time ended)':''}</dd></div>
+          <div><dt class="text-slate-400 text-xs uppercase tracking-wider">Submitted</dt><dd class="font-semibold">${when}</dd></div>
+        </dl>
+        <p class="text-[10px] uppercase tracking-widest text-slate-400 mt-5 mb-2">Performance by content area</p>
+        <div class="grid sm:grid-cols-2 gap-2">
+          ${partScores().map(x => `<div class="flex items-center justify-between bg-white/5 rounded-lg px-3 py-2 text-sm">
+            <span class="text-slate-200">${x.part.name}</span>
+            <span class="font-bold ${x.got/x.total >= CONFIG.passPct/100 ? 'text-teal-300' : 'text-brand-300'}">${x.got}/${x.total}</span></div>`).join("")}
+        </div>
+        <div class="mt-4 bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-xs text-slate-200 leading-relaxed">
+          <b class="text-white">Skills evaluation:</b> recorded separately by the instructor. Every skill must be performed correctly, including hand hygiene, identifying the person, consent, privacy and the safe ending steps. Both parts must be passed.
+          <br><span class="text-slate-400">${CONFIG.maxAttempts > 0 ? `Attempt ${ATTEMPTS} of ${CONFIG.maxAttempts}.` : `This was attempt ${ATTEMPTS}. You may take the quiz again as many times as you need.`}</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-3">${CONFIG.title} · ${CONFIG.instructor} · Your result has been sent to your instructor.</p>
+      </div>
+    </div>`;
+
+  // The answer key is NOT shown here. Students may retake the quiz, so the
+  // correct answers are released separately by the instructor.
+  const weakest = partScores().filter(x => x.total)
+      .sort((a,b) => (a.got/a.total) - (b.got/b.total)).slice(0,2)
+      .map(x => x.part.name.replace(/^Part \d+ · /, ""));
+  const rev = `
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 print-block">
+      <h3 class="font-display text-lg font-bold text-ink-900 mb-2">
+        <i class="fa-solid fa-lock text-brand-400 mr-1"></i> The answer key is not shown here</h3>
+      <p class="text-sm text-ink-800 leading-relaxed">You can take this quiz again, so the correct answers are not
+      displayed. Your instructor will send the answer key after the last attempt. Turn in your screenshot on Google Classroom, or send it to Ms. Maria.</p>
+      <p class="text-sm text-ink-800 leading-relaxed mt-3">Your score for each part is on the card above — screenshot it before you close this page.
+      ${weakest.length ? `Study ${weakest.map(w => "<b>"+esc(w)+"</b>").join(" and ")} again before your next attempt.` : ""}</p>
+      <p class="text-sm text-slate-600 bg-slate-50 rounded-lg px-3 py-2 mt-4 leading-relaxed">
+        <i class="fa-solid fa-book-open text-brand-400 mr-1"></i>
+        Everything in this quiz comes from your Week 4 handout: body mechanics · positioning ·
+        moving and transfers · exercise and range of motion · walking · rehabilitation.</p>
+    </div>`;
+  $("review").innerHTML = rev;
+
+  show("screen-result"); window.scrollTo(0,0);
+  sendResult({ raw, pct, pass, mins, when });
+}
+
+/* ══════════════════════ EMAIL (FormSubmit AJAX) ══════════════════════ */
+function sendResult(r){
+  const wrong = QUESTIONS.map((q,i) => isCorrect(q, S.answers[i]) ? null : `#${i+1} (${q.d})`).filter(Boolean).join(", ") || "none";
+  const payload = {
+    _subject: `CNA Week 4 Quiz — ${S.name} — ${r.pct}% (${r.pass ? "PASS" : "FAIL"})`,
+    Candidate: S.name, Email: S.email, Exam: CONFIG.title,
+    Score: `${r.raw}/${QUESTIONS.length}`, Percentage: `${r.pct}%`,
+    Result: r.pass ? "PASS" : "FAIL", Benchmark: `${CONFIG.passPct}%`,
+    Duration: `${r.mins} minutes`, Attempt: CONFIG.maxAttempts > 0 ? `${ATTEMPTS} of ${CONFIG.maxAttempts}` : `${ATTEMPTS}`, Submitted: r.when,
+    "Part scores": partScores().map(x => `${x.part.name}: ${x.got}/${x.total}`).join(" | "),
+    "Items missed": wrong
+  };
+  $("mail-status").textContent = "Sending your result to your instructor…";
+  fetch("https://formsubmit.co/ajax/" + encodeURIComponent(CONFIG.email), {
+    method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+    body: JSON.stringify(payload)
+  }).then(res => res.json())
+    .then(() => { $("mail-status").textContent = "Result sent to your instructor."; })
+    .catch(() => { $("mail-status").textContent = "Result could not be emailed — please show this page to your instructor."; });
+}
+
+/* ══════════════════════ RETAKE ══════════════════════ */
+$("btn-retake").onclick = () => {
+  if (CONFIG.maxAttempts > 0 && ATTEMPTS >= CONFIG.maxAttempts) { alert("You have used all " + CONFIG.maxAttempts + " attempts. This quiz is now locked. Please speak with your instructor."); show("screen-home"); renderAttempts(); return; }
+  S.answers = new Array(QUESTIONS.length).fill(null); S.work = {}; SEL = null; DRAG = null; S.idx = 0; S.done = false;
+  $("mail-status").textContent = "";
+  show("screen-home"); window.scrollTo(0,0); renderAttempts(); validReg();
+};
+
+/* ══════════════════════ GUARD & BOOT ══════════════════════ */
+window.addEventListener("beforeunload", e => { if (!S.done && S.started) { e.preventDefault(); e.returnValue = ""; } });
+bootLock(); validReg();
+</script>
+</body>
+</html>
